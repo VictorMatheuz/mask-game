@@ -1,50 +1,77 @@
 extends CharacterBody2D
 
 
+# --- CONFIGURAÇÕES DE MOVIMENTO ---
 @export var velocidade = 300.0
-@export var forca_do_pulo = -400.0  # Negativo porque no Godot, PARA CIMA é negativo.
-
-# Pegamos a gravidade padrão configurada no projeto (geralmente 980)
+@export var forca_do_pulo = -600.0
 var gravidade = ProjectSettings.get_setting("physics/2d/default_gravity")
+var cena_tomate = preload("res://scenes/levels/tomate.tscn")
+var ultima_direcao = 1
 
+# --- CONFIGURAÇÕES DE VIDA (NOVO) ---
+var vida = 1 
+
+# Esta função roda 60 vezes por segundo (é o coração do movimento)
 func _physics_process(delta):
-	# 1. APLICAR GRAVIDADE
-	# "is_on_floor()" é uma função mágica do CharacterBody2D.
-	# Ela retorna VERDADEIRO se o pé do personagem estiver tocando o chão.
+	# 1. GRAVIDADE
 	if not is_on_floor():
-		# Se NÃO estiver no chão, aumentamos a velocidade Y (cai mais rápido a cada segundo)
 		velocity.y += gravidade * delta
 
 	# 2. PULAR
-	# Se apertar o botão de pulo E estiver no chão (para evitar pulo infinito no ar)
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		# "ui_accept" geralmente é ESPAÇO ou ENTER por padrão no Godot
 		velocity.y = forca_do_pulo
 
-	# 3. MOVIMENTO HORIZONTAL (Esquerda e Direita)
-	# Aqui mudamos de "get_vector" para "get_axis".
-	# get_axis retorna:
-	# -1 se apertar Esquerda
-	#  1 se apertar Direita
-	#  0 se não apertar nada
-	var direcao = Input.get_axis("ui_left", "ui_right")
-	
-	if direcao:
-		# Se tem direção (-1 ou 1), multiplicamos pela velocidade
-		velocity.x = direcao * velocidade
+	# 3. MOVIMENTO HORIZONTAL
+	var input_axis = Input.get_axis("ui_left", "ui_right")
+	if input_axis:
+		velocity.x = input_axis * velocidade
 		
-		# DICA EXTRA: Virar o sprite para o lado certo
-		# Se direcao for menor que 0 (esquerda), flip_h (inverter horizontal) é verdadeiro
-		# Se for maior que 0 (direita), flip_h é falso.
-		# Ajuste "Sprite2D" para o nome exato do nó da sua imagem/animação.
-		if $AnimatedSprite2D: # Verifica se existe um nó AnimatedSprite2D
-			if direcao < 0:
-				$AnimatedSprite2D.flip_h = true
-			else:
-				$AnimatedSprite2D.flip_h = false
+		# Guardamos para onde ele está olhando
+		if input_axis > 0:
+			ultima_direcao = 1
+			$Sprite2D.flip_h = false # Ou Sprite2D
+		else:
+			ultima_direcao = -1
+			$Sprite2D.flip_h = true
 	else:
-		# Se soltou os botões (direção é 0), desacelera até parar
 		velocity.x = move_toward(velocity.x, 0, velocidade)
-
-	# 4. APLICAR TUDO
+	
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("atacar"):
+		atirar_tomate()
+
+# --- NOVO: Função de Atirar ---
+func atirar_tomate():
+	# 1. Criar uma cópia (instância) do tomate
+	var novo_tomate = cena_tomate.instantiate()
+	
+	# 2. Definir a posição inicial dele
+	# Colocamos na mesma posição do player
+	novo_tomate.position = position
+
+# Ajuste lateral: Joga o tomate um pouco para frente do nariz
+# Se ultima_direcao for 1 (direita), soma 20. Se for -1, subtrai 20.
+	
+
+# Ajuste vertical: Joga um pouco para cima (altura da mão/boca)
+
+	get_parent().add_child(novo_tomate)
+
+# --- FUNÇÃO DE RECEBER DANO (NOVO) ---
+# O inimigo vai procurar por esta função quando encostar em você
+func receber_dano():
+	print("Ai! Levei dano!") # Isso aparece na aba Output abaixo
+	vida -= 1
+	
+	if vida <= 0:
+		morrer()
+
+func morrer():
+	print("Game Over")
+	# Reinicia a fase
+	get_tree().reload_current_scene()
+
+
+func _on_area_visao_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
