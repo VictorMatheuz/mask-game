@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dtppoypby07km"]
+
+[ext_resource type="PackedScene" uid="uid://cjf00apsmmr8l" path="res://scenes/player/mascarado.tscn" id="1_377w7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_377w7"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+energy_multiplier = 2.95
+
+[sub_resource type="Sky" id="Sky_bovvr"]
+sky_material = SubResource("ProceduralSkyMaterial_377w7")
+
+[sub_resource type="Environment" id="Environment_b2cq8"]
+background_mode = 2
+sky = SubResource("Sky_bovvr")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d32ba"]
+size = Vector3(0.74713135, 1, 1)
+
+[node name="Level" type="Node3D" unique_id=1266606401]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1994005888]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=637665394]
+environment = SubResource("Environment_b2cq8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=383444660]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D" unique_id=87370696]
+transform = Transform3D(169.79659, 0, 0, 0, 1, 0, 0, 0, 169.79659, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=762302669]
+transform = Transform3D(231.24194, 0, 0, 0, 1.9677634, 0, 0, 0, 170.03429, -0.54338455, 0.10657883, 0)
+shape = SubResource("BoxShape3D_d32ba")
+
+[node name="mascarado" parent="." unique_id=1979756198 instance=ExtResource("1_377w7")]
+transform = Transform3D(6.133842, 0, 0, 0, 6.133842, 0, 0, 0, 6.133842, 0, 13.207696, 0)

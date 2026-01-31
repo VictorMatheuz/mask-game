@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://cjf00apsmmr8l"]
+
+[ext_resource type="Texture2D" uid="uid://gcqvvfhudkox" path="res://assets/character/Hoi (1).png" id="1_848ps"]
+[ext_resource type="Script" uid="uid://bp7h371hfi25h" path="res://scenes/player/mascarado.gd" id="1_gp5ue"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp5ue"]
+atlas = ExtResource("1_848ps")
+region = Rect2(0, 0, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0umo"]
+atlas = ExtResource("1_848ps")
+region = Rect2(24, 0, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr1s2"]
+atlas = ExtResource("1_848ps")
+region = Rect2(48, 0, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4hed"]
+atlas = ExtResource("1_848ps")
+region = Rect2(0, 96, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4q76n"]
+atlas = ExtResource("1_848ps")
+region = Rect2(24, 96, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iljjx"]
+atlas = ExtResource("1_848ps")
+region = Rect2(48, 96, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxb4g"]
+atlas = ExtResource("1_848ps")
+region = Rect2(0, 144, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vejyr"]
+atlas = ExtResource("1_848ps")
+region = Rect2(24, 144, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3rqm"]
+atlas = ExtResource("1_848ps")
+region = Rect2(48, 144, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nndfj"]
+atlas = ExtResource("1_848ps")
+region = Rect2(0, 48, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4grr"]
+atlas = ExtResource("1_848ps")
+region = Rect2(24, 48, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yutvw"]
+atlas = ExtResource("1_848ps")
+region = Rect2(48, 48, 24, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4hed"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp5ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0umo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr1s2")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4hed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4q76n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iljjx")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxb4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vejyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3rqm")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nndfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4grr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yutvw")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_848ps"]
+radius = 0.20947266
+height = 0.53808594
+
+[node name="mascarado" type="CharacterBody3D" unique_id=1979756198]
+transform = Transform3D(6.133842, 0, 0, 0, 6.133842, 0, 0, 0, 6.133842, 0, 0.37704396, 0)
+script = ExtResource("1_gp5ue")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=2100406294]
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_q4hed")
+animation = &"move_right"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1479614497]
+transform = Transform3D(0.554532, 0, 0, 0, 1.0000005, 0, 0, 0, 0.19390927, 0, -0.0019531287, 0)
+shape = SubResource("CapsuleShape3D_848ps")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1667278604]
+transform = Transform3D(1, 0, 0, 0, 0.9230022, 0.38479477, 0, -0.38479477, 0.9230022, 0, 0.6297356, 0.90396535)
