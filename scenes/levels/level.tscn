@@ -5,21 +5,33 @@
 [ext_resource type="Texture2D" uid="uid://cubnaxb0u3r2f" path="res://assets/character/New Piskel-1.png (4).png" id="3_b2cq8"]
 [ext_resource type="Script" uid="uid://bckxcf057kskq" path="res://scenes/levels/character_body_2d.gd" id="3_xb4v1"]
 [ext_resource type="Texture2D" uid="uid://shb870us4sw1" path="res://scenes/Azulejo 1 ensolarado.png.png" id="5_urvlt"]
+[ext_resource type="Texture2D" uid="uid://b0d24nrnps6fm" path="res://assets/character/New Piskel-1.png (2).png" id="7_ouxo3"]
+[ext_resource type="PackedScene" uid="uid://cxu5u4ueawn8q" path="res://scenes/levels/tomate.tscn" id="8_icy5c"]
+[ext_resource type="Script" uid="uid://0vidxluqhfh4" path="res://scenes/levels/inimigo_patrulha.gd" id="8_ouxo3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bovvr"]
 size = Vector2(110, 131)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xb4v1"]
-size = Vector2(79, 129)
+size = Vector2(79, 171)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4w6o"]
 size = Vector2(1275, 281.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbbpy"]
+size = Vector2(67, 135)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmjfq"]
+size = Vector2(73, 134)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouxo3"]
+size = Vector2(149, 154)
 
 [node name="mascara_item_tscn" type="Node2D" unique_id=1706472600]
 scale = Vector2(0.2478327, 0.2478327)
 
 [node name="MascaraItem" type="Area2D" parent="." unique_id=969675904]
-position = Vector2(3, 8)
+position = Vector2(-18, 9)
 script = ExtResource("1_bovvr")
 
 [node name="Sprite2D" type="Sprite2D" parent="MascaraItem" unique_id=1508449992]
@@ -31,15 +43,16 @@ position = Vector2(77, 366)
 shape = SubResource("RectangleShape2D_bovvr")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1589669901]
-position = Vector2(272, 46)
+position = Vector2(312, 358)
 script = ExtResource("3_xb4v1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1003080822]
-position = Vector2(554, 176)
+position = Vector2(0.99999976, 4.0000076)
+scale = Vector2(1, 1.3187499)
 texture = ExtResource("3_b2cq8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1355195492]
-position = Vector2(553.5, 169.5)
+position = Vector2(1, -4)
 shape = SubResource("RectangleShape2D_xb4v1")
 
 [node name="Area2D" type="StaticBody2D" parent="." unique_id=1800397012]
@@ -53,4 +66,39 @@ texture = ExtResource("5_urvlt")
 position = Vector2(638.5, 581.25)
 shape = SubResource("RectangleShape2D_d4w6o")
 
+[node name="InimigoPatrulha" type="CharacterBody2D" parent="." unique_id=347553793]
+position = Vector2(967, 439)
+script = ExtResource("8_ouxo3")
+
+[node name="Sprite2D" type="Sprite2D" parent="InimigoPatrulha" unique_id=1202779072]
+position = Vector2(1, -57)
+texture = ExtResource("7_ouxo3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InimigoPatrulha" unique_id=815507646]
+position = Vector2(1, -66.5)
+shape = SubResource("RectangleShape2D_mbbpy")
+
+[node name="AreaDano" type="Area2D" parent="InimigoPatrulha" unique_id=160079982]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InimigoPatrulha/AreaDano" unique_id=1485014369]
+position = Vector2(2, -75)
+shape = SubResource("RectangleShape2D_rmjfq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=681855580]
+position = Vector2(1180, 357)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=255749198]
+position = Vector2(10.000244, 2)
+scale = Vector2(0.63125, 0.553125)
+texture = ExtResource("5_urvlt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=497025493]
+position = Vector2(10.5, 1)
+shape = SubResource("RectangleShape2D_ouxo3")
+
+[node name="tomate" parent="." unique_id=437814825 instance=ExtResource("8_icy5c")]
+position = Vector2(-12, 38)
+
 [connection signal="body_entered" from="MascaraItem" to="MascaraItem" method="_on_body_entered"]
+[connection signal="body_entered" from="InimigoPatrulha/AreaDano" to="InimigoPatrulha" method="_on_area_dano_body_entered"]
+[connection signal="body_entered" from="tomate" to="InimigoPatrulha" method="_on_tomate_body_entered"]

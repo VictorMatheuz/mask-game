@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dfg6k2fmtjwns"]
+
+[ext_resource type="Script" uid="uid://codmk2hfmscx1" path="res://inimigo_1.gd" id="1_m4ihc"]
+[ext_resource type="Texture2D" uid="uid://b0d24nrnps6fm" path="res://assets/character/New Piskel-1.png (2).png" id="2_1ghfo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8y0m"]
+size = Vector2(61, 131)
+
+[node name="Batalha" type="Node2D" unique_id=1748010572]
+
+[node name="inimigo 1" type="Area2D" parent="." unique_id=899561122]
+script = ExtResource("1_m4ihc")
+
+[node name="Sprite2D" type="Sprite2D" parent="inimigo 1" unique_id=233204781]
+position = Vector2(111, 404)
+texture = ExtResource("2_1ghfo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inimigo 1" unique_id=1716308568]
+position = Vector2(112, 398)
+shape = SubResource("RectangleShape2D_s8y0m")
+
+[connection signal="body_entered" from="inimigo 1" to="inimigo 1" method="_on_body_entered"]

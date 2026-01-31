@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cxu5u4ueawn8q"]
+
+[ext_resource type="Script" uid="uid://ddrgyr83bl5mo" path="res://scenes/levels/tomate.gd" id="1_i7ju4"]
+[ext_resource type="Texture2D" uid="uid://cmgj4vgptamdn" path="res://assets/Itens/tomato arremessado.png" id="2_2fm3j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlbly"]
+atlas = ExtResource("2_2fm3j")
+region = Rect2(0, 11, 32, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvt50"]
+atlas = ExtResource("2_2fm3j")
+region = Rect2(32, 11, 32, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fou6k"]
+atlas = ExtResource("2_2fm3j")
+region = Rect2(64, 11, 32, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oxihl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlbly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvt50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvt50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvt50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvt50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fou6k")
+}],
+"loop": true,
+"name": &"tomate",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1kedh"]
+radius = 11.401754
+
+[node name="tomate" type="Area2D" unique_id=437814825]
+script = ExtResource("1_i7ju4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1872535357]
+position = Vector2(603.5, 466)
+scale = Vector2(2.7812502, 4.9090896)
+sprite_frames = SubResource("SpriteFrames_oxihl")
+animation = &"tomate"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1023031964]
+position = Vector2(605, 463)
+shape = SubResource("CircleShape2D_1kedh")

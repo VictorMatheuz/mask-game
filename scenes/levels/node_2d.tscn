@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dmc0au8n4xi5s"]
+
+[ext_resource type="Script" uid="uid://0vidxluqhfh4" path="res://scenes/levels/inimigo_patrulha.gd" id="1_babg3"]
+[ext_resource type="Texture2D" uid="uid://b0d24nrnps6fm" path="res://assets/character/New Piskel-1.png (2).png" id="2_ca3nq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtrwo"]
+size = Vector2(67, 253)
+
+[node name="Node2D" type="Node2D" unique_id=367578458]
+
+[node name="InimigoPatrulha2" type="CharacterBody2D" parent="." unique_id=1133725254]
+position = Vector2(1009, 373)
+script = ExtResource("1_babg3")
+
+[node name="Sprite2D" type="Sprite2D" parent="InimigoPatrulha2" unique_id=1125926709]
+position = Vector2(-2, -73)
+scale = Vector2(1, 1.95)
+texture = ExtResource("2_ca3nq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InimigoPatrulha2" unique_id=1437635600]
+position = Vector2(-4, -85.5)
+shape = SubResource("RectangleShape2D_vtrwo")
+
+[node name="AreaVisao" type="Area2D" parent="InimigoPatrulha2" unique_id=106394308]
+position = Vector2(-4, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InimigoPatrulha2/AreaVisao" unique_id=848199287]
+polygon = PackedVector2Array(20, -163, 330, -34, 248, 64)
+
+[node name="Polygon2D" type="Polygon2D" parent="InimigoPatrulha2/AreaVisao" unique_id=1776014099]
+position = Vector2(19, -163)
+color = Color(0.8862745, 0.2901961, 0.34509805, 0.39215687)
+polygon = PackedVector2Array(1, -2, 307, 129, 244, 207)
