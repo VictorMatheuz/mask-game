@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cgw0f5pvytlm3"]
+
+[ext_resource type="Script" uid="uid://dxa6n60e2hfco" path="res://npc_base.gd" id="1_6txx1"]
+[ext_resource type="Texture2D" uid="uid://duhwsatrqy7s5" path="res://icon.svg" id="1_tmksl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6txx1"]
+
+[node name="NPC_Base" type="CharacterBody3D" unique_id=924149390]
+script = ExtResource("1_6txx1")
+timeline_npc = "timeline_npc"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1103387055]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=613295077]
+transform = Transform3D(1.671721, 0, 0, 0, 2.2559264, 0, 0, 0, 1, -0.053805113, -0.03324437, 0)
+texture = ExtResource("1_tmksl")
+
+[node name="AreaInteracao" type="Area3D" parent="." unique_id=1242871265]
+transform = Transform3D(1, 0, 0, 0, 1.295209, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaInteracao" unique_id=644356477]
+transform = Transform3D(2.1111457, 0, 0, 0, 2.4153244, 0, 0, 0, 1, -0.08697653, 0.011175156, -0.032539845)
+shape = SubResource("BoxShape3D_6txx1")
+debug_color = Color(0.9353817, 0.22034088, 0.33716393, 0.41960785)

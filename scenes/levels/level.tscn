@@ -1,41 +1,55 @@
 [gd_scene format=3 uid="uid://dtppoypby07km"]
 
-[ext_resource type="PackedScene" uid="uid://cjf00apsmmr8l" path="res://scenes/player/mascarado.tscn" id="1_377w7"]
+[ext_resource type="Texture2D" uid="uid://coswdh2ct2odt" path="res://assets/Itens/Máscara teste-1.png-1.png.png" id="1_377w7"]
+[ext_resource type="Script" uid="uid://c722tdg3vq011" path="res://scenes/levels/mascara_item.gd" id="1_bovvr"]
+[ext_resource type="Texture2D" uid="uid://cubnaxb0u3r2f" path="res://assets/character/New Piskel-1.png (4).png" id="3_b2cq8"]
+[ext_resource type="Script" uid="uid://bckxcf057kskq" path="res://scenes/levels/character_body_2d.gd" id="3_xb4v1"]
+[ext_resource type="Texture2D" uid="uid://shb870us4sw1" path="res://scenes/Azulejo 1 ensolarado.png.png" id="5_urvlt"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_377w7"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-energy_multiplier = 2.95
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bovvr"]
+size = Vector2(110, 131)
 
-[sub_resource type="Sky" id="Sky_bovvr"]
-sky_material = SubResource("ProceduralSkyMaterial_377w7")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xb4v1"]
+size = Vector2(79, 129)
 
-[sub_resource type="Environment" id="Environment_b2cq8"]
-background_mode = 2
-sky = SubResource("Sky_bovvr")
-tonemap_mode = 2
-glow_enabled = true
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4w6o"]
+size = Vector2(1275, 281.5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_d32ba"]
-size = Vector3(0.74713135, 1, 1)
+[node name="mascara_item_tscn" type="Node2D" unique_id=1706472600]
 
-[node name="Level" type="Node3D" unique_id=1266606401]
+[node name="MascaraItem" type="Area2D" parent="." unique_id=969675904]
+position = Vector2(3, 8)
+script = ExtResource("1_bovvr")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1994005888]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
+[node name="Sprite2D" type="Sprite2D" parent="MascaraItem" unique_id=1508449992]
+position = Vector2(82, 363)
+texture = ExtResource("1_377w7")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=637665394]
-environment = SubResource("Environment_b2cq8")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MascaraItem" unique_id=280452592]
+position = Vector2(77, 366)
+shape = SubResource("RectangleShape2D_bovvr")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=383444660]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1589669901]
+position = Vector2(272, 46)
+script = ExtResource("3_xb4v1")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D" unique_id=87370696]
-transform = Transform3D(169.79659, 0, 0, 0, 1, 0, 0, 0, 169.79659, 0, 0, 0)
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1003080822]
+position = Vector2(554, 176)
+texture = ExtResource("3_b2cq8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=762302669]
-transform = Transform3D(231.24194, 0, 0, 0, 1.9677634, 0, 0, 0, 170.03429, -0.54338455, 0.10657883, 0)
-shape = SubResource("BoxShape3D_d32ba")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1355195492]
+position = Vector2(553.5, 169.5)
+shape = SubResource("RectangleShape2D_xb4v1")
 
-[node name="mascarado" parent="." unique_id=1979756198 instance=ExtResource("1_377w7")]
-transform = Transform3D(6.133842, 0, 0, 0, 6.133842, 0, 0, 0, 6.133842, 0, 13.207696, 0)
+[node name="Area2D" type="StaticBody2D" parent="." unique_id=1800397012]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=2128419570]
+position = Vector2(638.50006, 582)
+scale = Vector2(5.278125, 1)
+texture = ExtResource("5_urvlt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1122777750]
+position = Vector2(638.5, 581.25)
+shape = SubResource("RectangleShape2D_d4w6o")
+
+[connection signal="body_entered" from="MascaraItem" to="MascaraItem" method="_on_body_entered"]
