@@ -20,21 +20,72 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 [dialogic]
 
-directories/dch_directory={}
+directories/dch_directory={
+"artista": "res://artista.dch"
+}
 directories/dtl_directory={
+"ato1": "res://timelines/ato1.dtl",
+"ato2_con": "res://timelines/ato2_con.dtl",
+"ato2_mono": "res://timelines/ato2_mono.dtl",
+"ato3_con": "res://timelines/ato3_con.dtl",
+"ato3_mono": "res://timelines/ato3_mono.dtl",
+"ato4_con": "res://timelines/ato4_con.dtl",
+"ato4_mono": "res://timelines/ato4_mono.dtl",
+"ato5_cli": "res://timelines/ato5_cli.dtl",
+"ato5_con": "res://timelines/ato5_con.dtl",
 "timeline": "res://timelines/timeline.dtl",
 "timeline_da_mascara": "res://timeline_da_mascara.dtl",
 "timeline_npc": "res://timeline_npc.dtl"
 }
-layout/style_directory={}
+layout/style_directory={
+"": "res://timelines/New_File.tres",
+"New_File": "res://timelines/New_File.tres"
+}
+layout/style_list=["", "res://timelines/New_File.tres"]
+layout/default_style="res://timelines/New_File.tres"
+extensions_folder="res://addons/dialogic_additions"
+text/letter_speed=0.01
+text/initial_text_reveal_skippable=true
+text/text_reveal_skip_delay=0.1
+text/advance_delay=0.1
+text/autoadvance_per_character_delay=0.1
+text/autoadvance_ignored_characters_enabled=true
+animations/join_default_length=0.5
+animations/join_default_wait=true
+animations/leave_default_length=0.5
+animations/leave_default_wait=true
+animations/cross_fade_default_length=0.5
+choices/autofocus_first=true
+choices/delay=0.2
+choices/reveal_delay=0
+choices/reveal_by_input=false
+save/autosave_delay=60.0
+save/encryption_on_exports_only=true
+text/autopauses={}
+audio/channel_defaults={
+"": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": false,
+"volume": 0.0
+},
+"music": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": true,
+"volume": 0.0
+}
+}
+variables={}
 
 [display]
 
 window/size/viewport_width=320
 window/size/viewport_height=180
-window/size/mode=2
 window/size/window_width_override=1280
 window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
 
 [editor_plugins]
 

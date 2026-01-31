@@ -16,6 +16,7 @@ size = Vector2(79, 129)
 size = Vector2(1275, 281.5)
 
 [node name="mascara_item_tscn" type="Node2D" unique_id=1706472600]
+scale = Vector2(0.2478327, 0.2478327)
 
 [node name="MascaraItem" type="Area2D" parent="." unique_id=969675904]
 position = Vector2(3, 8)
