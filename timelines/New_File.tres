@@ -36,18 +36,11 @@ script = ExtResource("2_drpbe")
 scene = ExtResource("6_dctl3")
 overrides = {
 "box_margin_bottom": "6.0",
-<<<<<<< Updated upstream
 "box_size": "Vector2(200, 50)",
-"next_indicator_size": "Vector2(6, 6)",
-"text_size": "4.0",
-=======
-"box_size": "Vector2(200.1, 50.1)",
 "next_indicator_enabled": "false",
-"next_indicator_position_offset": "Vector2(-40, -10)",
 "next_indicator_show_on_questions": "false",
 "next_indicator_size": "Vector2(6, 6)",
-"text_size": "6.0",
->>>>>>> Stashed changes
+"text_size": "4.0",
 "text_use_global_size": "false"
 }
 

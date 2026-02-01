@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://duhwsatrqy7s5" path="res://icon.svg" id="2_sut2i"]
 [ext_resource type="Script" uid="uid://ctjo6rixgiie1" path="res://scenes/levels/boss.gd" id="3_meqg1"]
 [ext_resource type="Texture2D" uid="uid://bq6cw8llny3bj" path="res://assets/Sprite MASK/Sprite-0030.png" id="4_meqg1"]
+[ext_resource type="AudioStream" uid="uid://cphxchshoq8k5" path="res://RAIVA.mp3" id="7_sle2x"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_meqg1"]
 
@@ -119,8 +120,6 @@ emission_box_extents = Vector3(90, 1, 1)
 gravity = Vector3(0, -200, 0)
 scale_curve = SubResource("CurveTexture_sle2x")
 color = Color(1, 0.007843138, 0, 1)
-hue_variation_min = -2.2351742e-08
-hue_variation_max = -2.2351742e-08
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u8gog"]
 texture = ExtResource("1_u8gog")
@@ -226,5 +225,10 @@ position = Vector2(83, -2.9999995)
 scale = Vector2(1.2125827, 1.2125827)
 tile_map_data = PackedByteArray("AADk//7/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_4iehs")
+
+[node name="BatalhaBoss" type="AudioStreamPlayer" parent="." unique_id=595010770]
+stream = ExtResource("7_sle2x")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="body_entered" from="Boss/ZonaMorte" to="Boss" method="_on_zona_morte_body_entered"]

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Definimos a vida inicial
-var vida = 20
+var vida = 10
 @export var cor_dano = Color(1, 0, 0) # Cor vermelha para o piscar de dano
 
 func _ready():

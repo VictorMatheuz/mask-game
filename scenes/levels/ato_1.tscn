@@ -9,7 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b65ym06ygn61v" path="res://scenes/olhos.tscn" id="5_3y33a"]
 [ext_resource type="PackedScene" uid="uid://cuad7hmhep7lv" path="res://scenes/fantasma.tscn" id="6_pnmyr"]
 [ext_resource type="Script" uid="uid://c722tdg3vq011" path="res://scenes/levels/mascara_item.gd" id="9_bnx8y"]
-[ext_resource type="Texture2D" uid="uid://coswdh2ct2odt" path="res://assets/Itens/Máscara teste-1.png-1.png.png" id="10_whjy5"]
+[ext_resource type="Texture2D" uid="uid://cnb0afdenfp8b" path="res://assets/Itens/Nova pasta/1616.png" id="10_whjy5"]
+[ext_resource type="AudioStream" uid="uid://cjmtflicwm1sp" path="res://MEDO.mp3" id="11_whjy5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_56le3"]
 
@@ -1128,14 +1129,19 @@ position = Vector2(-18, 9)
 script = ExtResource("9_bnx8y")
 
 [node name="Sprite2D" type="Sprite2D" parent="MascaraItem" unique_id=234480175]
-position = Vector2(-511, 28)
+position = Vector2(2063.6968, 45.696854)
 scale = Vector2(0.41855347, 0.41855347)
 texture = ExtResource("10_whjy5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MascaraItem" unique_id=1525218858]
-position = Vector2(-516, 31)
+position = Vector2(2058.697, 48.696854)
 scale = Vector2(0.41855347, 0.41855347)
 shape = SubResource("RectangleShape2D_bnx8y")
+
+[node name="Batalha1" type="AudioStreamPlayer" parent="." unique_id=1021531941]
+stream = ExtResource("11_whjy5")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="body_entered" from="MascaraItem" to="MascaraItem" method="_on_body_entered"]
 
