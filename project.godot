@@ -33,6 +33,7 @@ directories/dtl_directory={
 "ato4_mono": "res://timelines/ato4_mono.dtl",
 "ato5_cli": "res://timelines/ato5_cli.dtl",
 "ato5_con": "res://timelines/ato5_con.dtl",
+"como jogar": "res://como jogar.dtl",
 "timeline_da_mascara": "res://timeline_da_mascara.dtl",
 "timeline_npc": "res://timeline_npc.dtl"
 }

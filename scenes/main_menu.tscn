@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://bwr2upbej333e"]
 
 [ext_resource type="Script" uid="uid://5xkj3fqab7lj" path="res://scenes/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://qiq5gcw8fkqa" path="res://assets/cenarios/teatro arthur azevedo.png" id="2_bqqt6"]
+[ext_resource type="AudioStream" uid="uid://ck4qkgifnntcr" path="res://Soundtrack/TRISTEZA.mp3" id="2_ekxnf"]
 
 [node name="MainMenu" type="Node2D" unique_id=2110162154]
 script = ExtResource("1_l6cm7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=121007516]
+position = Vector2(162, 92)
+texture = ExtResource("2_bqqt6")
 
 [node name="Button_Manager" type="Control" parent="." unique_id=1582135914]
 layout_mode = 3
@@ -22,21 +28,35 @@ grow_vertical = 2
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 221.0
-offset_top = 84.0
-offset_right = 303.0
-offset_bottom = 115.0
+offset_left = 119.0
+offset_top = 77.0
+offset_right = 201.0
+offset_bottom = 108.0
 grow_horizontal = 2
 text = "Novo Jogo"
 
 [node name="Sair" type="Button" parent="Button_Manager" unique_id=301608361]
 layout_mode = 0
-offset_left = 220.0
-offset_top = 124.0
-offset_right = 306.0
-offset_bottom = 155.0
+offset_left = 123.0
+offset_top = 112.0
+offset_right = 200.0
+offset_bottom = 143.0
 text = "Sair
 "
+
+[node name="Button" type="Button" parent="Button_Manager" unique_id=818647838]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 148.0
+offset_right = 210.0
+offset_bottom = 179.0
+text = "Como Jogar
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1206026653]
+stream = ExtResource("2_ekxnf")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="pressed" from="Button_Manager/Novo_jogo" to="." method="_on_novo_jogo_pressed"]
 [connection signal="pressed" from="Button_Manager/Sair" to="." method="_on_sair_pressed"]
