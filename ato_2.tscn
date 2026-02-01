@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bayko1pandii4"]
+
+[ext_resource type="PackedScene" uid="uid://cb127rleu8wj4" path="res://mascara.tscn" id="1_eneit"]
+[ext_resource type="Texture2D" uid="uid://shb870us4sw1" path="res://scenes/Azulejo 1 ensolarado.png.png" id="2_262qi"]
+[ext_resource type="Script" uid="uid://b4pge4lowhvwm" path="res://character_body_2d.gd" id="3_eneit"]
+[ext_resource type="Texture2D" uid="uid://cubnaxb0u3r2f" path="res://assets/character/New Piskel-1.png (4).png" id="4_2vcj7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqrpx"]
+size = Vector2(14, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eneit"]
+size = Vector2(1275, 279.75)
+
+[node name="Ato 2" type="Node2D" unique_id=1815230537]
+
+[node name="Mascara" parent="." unique_id=1416495997 instance=ExtResource("1_eneit")]
+position = Vector2(298, 96)
+
+[node name="Player47" type="CharacterBody2D" parent="." unique_id=2146270610]
+position = Vector2(18, 90)
+script = ExtResource("3_eneit")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player47" unique_id=1426691099]
+position = Vector2(-1, 2)
+scale = Vector2(0.16249995, 0.22500002)
+texture = ExtResource("4_2vcj7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player47" unique_id=78804265]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_bqrpx")
+
+[node name="Area2D" type="StaticBody2D" parent="." unique_id=216162145]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=469413074]
+position = Vector2(211.00003, 246)
+scale = Vector2(5.278125, 1)
+texture = ExtResource("2_262qi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1909545038]
+position = Vector2(209, 248.875)
+shape = SubResource("RectangleShape2D_eneit")
+
+[connection signal="body_entered" from="Mascara" to="Mascara" method="_on_body_entered"]

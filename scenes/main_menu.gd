@@ -12,14 +12,10 @@ func _process(delta: float) -> void:
 
 
 func _on_novo_jogo_pressed() -> void:
-	Dialogic.timeline_ended.connect(ended)
-	Dialogic.start("ato1")
-	set_physics_process(false)
+	get_tree().change_scene_to_file("res://transição_1.tscn")
 	
 
-func ended():
-	Dialogic.timeline_ended.disconnect(ended)
-	set_physics_process(true)
+
 
 
 func _on_sair_pressed() -> void:

@@ -33,7 +33,6 @@ directories/dtl_directory={
 "ato4_mono": "res://timelines/ato4_mono.dtl",
 "ato5_cli": "res://timelines/ato5_cli.dtl",
 "ato5_con": "res://timelines/ato5_con.dtl",
-"timeline": "res://timelines/timeline.dtl",
 "timeline_da_mascara": "res://timeline_da_mascara.dtl",
 "timeline_npc": "res://timeline_npc.dtl"
 }
@@ -41,7 +40,7 @@ layout/style_directory={
 "": "res://timelines/New_File.tres",
 "New_File": "res://timelines/New_File.tres"
 }
-layout/style_list=["", "res://timelines/New_File.tres"]
+layout/style_list=["res://timelines/New_File.tres"]
 layout/default_style="res://timelines/New_File.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
