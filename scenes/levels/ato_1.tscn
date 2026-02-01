@@ -14,7 +14,7 @@ size = Vector2(130, 126)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1930446290]
 position = Vector2(157, 131)
-scale = Vector2(4.883465, 1)
+scale = Vector2(30.643467, 1)
 physics_material_override = SubResource("PhysicsMaterial_56le3")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=726755924]

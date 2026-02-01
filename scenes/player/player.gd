@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 		$flip.scale.x = 1
 	elif direction == -1:
 		$AnimatedSprite2D.play("move_left")
+		#$flip/ShotPosition.position = Vector2(-9,0)
 		$flip.scale.x = -1
 	elif direction == 0: 
 		
@@ -39,6 +40,7 @@ func _physics_process(delta: float) -> void:
 		var k = ataque.instantiate()
 		
 		k.global_position = $flip/ShotPosition.global_position
+		print(k.global_position)
 		k.vel = $flip.scale.x
 		get_parent().add_child(k)
 		

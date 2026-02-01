@@ -59,7 +59,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
-radius = 5.0
+radius = 4.0
+height = 13.345679
 
 [node name="player" type="CharacterBody2D" unique_id=1129646201]
 script = ExtResource("1_dovo2")
@@ -71,11 +72,11 @@ animation = &"move_right"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1989611000]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1804266291]
-position = Vector2(2, 0)
-scale = Vector2(1, 1.5200002)
+position = Vector2(1, 13.000001)
+scale = Vector2(-1.8250953, 1.7983347)
 shape = SubResource("CapsuleShape2D_8afob")
 
 [node name="flip" type="Node2D" parent="." unique_id=1737802641]
-position = Vector2(11, 0)
+position = Vector2(9, -5)
 
 [node name="ShotPosition" type="Marker2D" parent="flip" unique_id=902810867]

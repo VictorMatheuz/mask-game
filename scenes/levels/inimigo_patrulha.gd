@@ -39,8 +39,8 @@ func _on_area_dano_body_entered(body):
 
 # --- COLISÃO VISUAL (Entrou no cone de visão) ---
 # Esta função foi criada ao conectar o sinal da AreaVisao
-func _on_area_visao_body_entered(body):
-	machucar_player(body)
+#func _on_area_visao_body_entered(body):
+#	machucar_player(body)
 
 # Criei essa função auxiliar para não repetir código
 func machucar_player(body):

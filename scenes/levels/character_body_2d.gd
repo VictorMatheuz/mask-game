@@ -38,7 +38,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("atacar"):
+	if Input.is_action_just_pressed("ataque"):
 		atirar_tomate()
 
 # --- NOVO: Função de Atirar ---
