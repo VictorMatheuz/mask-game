@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://bwr2upbej333e"]
 
 [ext_resource type="Script" uid="uid://5xkj3fqab7lj" path="res://scenes/main_menu.gd" id="1_l6cm7"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://qiq5gcw8fkqa" path="res://assets/cenarios/teatro arthur azevedo.png" id="2_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://ck4qkgifnntcr" path="res://Soundtrack/TRISTEZA.mp3" id="2_ekxnf"]
+=======
+[ext_resource type="AudioStream" uid="uid://dtrqfda5wu6ku" path="res://TRISTEZA.mp3" id="2_ekxnf"]
+>>>>>>> Stashed changes
 
 [node name="MainMenu" type="Node2D" unique_id=2110162154]
 script = ExtResource("1_l6cm7")
@@ -28,15 +32,23 @@ grow_vertical = 2
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+<<<<<<< Updated upstream
 offset_left = 119.0
 offset_top = 77.0
 offset_right = 201.0
 offset_bottom = 108.0
+=======
+offset_left = 219.0
+offset_top = 62.0
+offset_right = 301.0
+offset_bottom = 93.0
+>>>>>>> Stashed changes
 grow_horizontal = 2
 text = "Novo Jogo"
 
 [node name="Sair" type="Button" parent="Button_Manager" unique_id=301608361]
 layout_mode = 0
+<<<<<<< Updated upstream
 offset_left = 123.0
 offset_top = 112.0
 offset_right = 200.0
@@ -54,9 +66,28 @@ text = "Como Jogar
 "
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1206026653]
+=======
+offset_left = 218.0
+offset_top = 101.0
+offset_right = 304.0
+offset_bottom = 132.0
+text = "Sair
+"
+
+[node name="Como_jogar" type="Button" parent="Button_Manager" unique_id=936373609]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 137.0
+offset_right = 310.0
+offset_bottom = 168.0
+text = "Como Jogar"
+
+[node name="MusicaMenu" type="AudioStreamPlayer" parent="." unique_id=1136379872]
+>>>>>>> Stashed changes
 stream = ExtResource("2_ekxnf")
 volume_db = -15.0
 autoplay = true
 
 [connection signal="pressed" from="Button_Manager/Novo_jogo" to="." method="_on_novo_jogo_pressed"]
 [connection signal="pressed" from="Button_Manager/Sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="Button_Manager/Como_jogar" to="." method="_on_como_jogar_pressed"]

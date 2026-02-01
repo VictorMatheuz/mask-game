@@ -119,6 +119,8 @@ emission_box_extents = Vector3(90, 1, 1)
 gravity = Vector3(0, -200, 0)
 scale_curve = SubResource("CurveTexture_sle2x")
 color = Color(1, 0.007843138, 0, 1)
+hue_variation_min = -2.2351742e-08
+hue_variation_max = -2.2351742e-08
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u8gog"]
 texture = ExtResource("1_u8gog")

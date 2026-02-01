@@ -1,7 +1,14 @@
+<<<<<<< Updated upstream
 [gd_scene format=3 uid="uid://dlmq4xkrdjdny"]
 
 [ext_resource type="Script" path="res://créditos.gd" id="1_36lty"]
 [ext_resource type="AudioStream" uid="uid://crvaha8rnbsj8" path="res://Soundtrack/FELICIDADE.mp3" id="2_7v4ru"]
+=======
+[gd_scene format=3 uid="uid://dtayk5mnq7c7g"]
+
+[ext_resource type="Script" uid="uid://dmuqp6rs1oy8x" path="res://créditos.gd" id="1_36lty"]
+[ext_resource type="AudioStream" uid="uid://be7t4tuan0ke5" path="res://FELICIDADE.mp3" id="2_7v4ru"]
+>>>>>>> Stashed changes
 
 [sub_resource type="Theme" id="Theme_070nh"]
 

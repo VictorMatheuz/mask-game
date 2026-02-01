@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_novo_jogo_pressed() -> void:
 	Dialogic.timeline_ended.connect(ended)
+	get_tree().change_scene_to_file("res://scenes/levels/ato_1.tscn")
 	Dialogic.start("ato1")
 	
 	set_physics_process(false)
@@ -20,6 +21,7 @@ func _on_novo_jogo_pressed() -> void:
 
 func ended():
 	Dialogic.timeline_ended.disconnect(ended)
+
 	set_physics_process(true)
 
 
@@ -27,5 +29,11 @@ func _on_sair_pressed() -> void:
 	get_tree().quit()
 
 
+<<<<<<< Updated upstream
 func _on_button_pressed() -> void:
 	pass # Replace with function body.
+=======
+func _on_como_jogar_pressed() -> void:
+	Dialogic.timeline_ended.connect(ended)
+	Dialogic.start("res://como jogar.dtl")
+>>>>>>> Stashed changes
