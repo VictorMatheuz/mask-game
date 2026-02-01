@@ -6,8 +6,8 @@
 [ext_resource type="Script" uid="uid://bckxcf057kskq" path="res://scenes/levels/character_body_2d.gd" id="3_xb4v1"]
 [ext_resource type="Texture2D" uid="uid://shb870us4sw1" path="res://scenes/Azulejo 1 ensolarado.png.png" id="5_urvlt"]
 [ext_resource type="Texture2D" uid="uid://b0d24nrnps6fm" path="res://assets/character/New Piskel-1.png (2).png" id="7_ouxo3"]
-[ext_resource type="PackedScene" uid="uid://cxu5u4ueawn8q" path="res://scenes/levels/tomate.tscn" id="8_icy5c"]
-[ext_resource type="Script" uid="uid://0vidxluqhfh4" path="res://scenes/levels/inimigo_patrulha.gd" id="8_ouxo3"]
+[ext_resource type="Script" path="res://scenes/levels/inimigo_patrulha.gd" id="8_ouxo3"]
+[ext_resource type="PackedScene" uid="uid://bvhcbuahaet43" path="res://scenes/player/player.tscn" id="9_icy5c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bovvr"]
 size = Vector2(110, 131)
@@ -43,6 +43,7 @@ position = Vector2(77, 366)
 shape = SubResource("RectangleShape2D_bovvr")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1589669901]
+visible = false
 position = Vector2(312, 358)
 script = ExtResource("3_xb4v1")
 
@@ -96,9 +97,14 @@ texture = ExtResource("5_urvlt")
 position = Vector2(10.5, 1)
 shape = SubResource("RectangleShape2D_ouxo3")
 
-[node name="tomate" parent="." unique_id=437814825 instance=ExtResource("8_icy5c")]
-position = Vector2(-12, 38)
+[node name="player" parent="." unique_id=1129646201 instance=ExtResource("9_icy5c")]
+position = Vector2(476.1277, 375.2533)
+scale = Vector2(2.7260828, 2.7260828)
+
+[node name="flip" parent="player" index="3" unique_id=1737802641]
+position = Vector2(669.8067, 1089.4446)
 
 [connection signal="body_entered" from="MascaraItem" to="MascaraItem" method="_on_body_entered"]
 [connection signal="body_entered" from="InimigoPatrulha/AreaDano" to="InimigoPatrulha" method="_on_area_dano_body_entered"]
-[connection signal="body_entered" from="tomate" to="InimigoPatrulha" method="_on_tomate_body_entered"]
+
+[editable path="player"]

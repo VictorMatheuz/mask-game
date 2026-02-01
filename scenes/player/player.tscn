@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://bvhcbuahaet43"]
+
+[ext_resource type="Texture2D" uid="uid://gcqvvfhudkox" path="res://assets/character/Hoi (1).png" id="1_8afob"]
+[ext_resource type="Script" uid="uid://dpcy4vmorwhyj" path="res://scenes/player/player.gd" id="1_dovo2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dovo2"]
+atlas = ExtResource("1_8afob")
+region = Rect2(0, 96, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmlin"]
+atlas = ExtResource("1_8afob")
+region = Rect2(24, 96, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvxji"]
+atlas = ExtResource("1_8afob")
+region = Rect2(48, 96, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p47bc"]
+atlas = ExtResource("1_8afob")
+region = Rect2(0, 144, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75vfm"]
+atlas = ExtResource("1_8afob")
+region = Rect2(24, 144, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0owmy"]
+atlas = ExtResource("1_8afob")
+region = Rect2(48, 144, 24, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qek5x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dovo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmlin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvxji")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p47bc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75vfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0owmy")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
+radius = 5.0
+
+[node name="player" type="CharacterBody2D" unique_id=1129646201]
+script = ExtResource("1_dovo2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1015152394]
+sprite_frames = SubResource("SpriteFrames_qek5x")
+animation = &"move_right"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1989611000]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1804266291]
+position = Vector2(2, 0)
+scale = Vector2(1, 1.5200002)
+shape = SubResource("CapsuleShape2D_8afob")
+
+[node name="flip" type="Node2D" parent="." unique_id=1737802641]
+position = Vector2(11, 0)
+
+[node name="ShotPosition" type="Marker2D" parent="flip" unique_id=902810867]

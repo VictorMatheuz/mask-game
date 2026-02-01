@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 func _on_novo_jogo_pressed() -> void:
 	Dialogic.timeline_ended.connect(ended)
 	Dialogic.start("ato1")
+	
 	set_physics_process(false)
 	
 
