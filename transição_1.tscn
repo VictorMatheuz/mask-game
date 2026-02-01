@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://xc7oflin8368"]
+
+[ext_resource type="Script" uid="uid://bpx10ymnhem7m" path="res://node_2d.gd" id="1_7vv24"]
+
+[node name="Transição1" type="Node2D" unique_id=113845245]
+script = ExtResource("1_7vv24")
+
+[node name="Timer" type="Timer" parent="." unique_id=507741788]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

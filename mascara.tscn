@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cb127rleu8wj4"]
+
+[ext_resource type="Script" uid="uid://4jijs2vojgtv" path="res://mascara.gd" id="1_ntpbp"]
+[ext_resource type="Texture2D" uid="uid://coswdh2ct2odt" path="res://assets/Itens/Máscara teste-1.png-1.png.png" id="2_hg1j6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opytq"]
+size = Vector2(16, 17)
+
+[node name="Mascara" type="Area2D" unique_id=1416495997]
+position = Vector2(117, 164)
+script = ExtResource("1_ntpbp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1429301144]
+position = Vector2(-1.9073486e-06, 0)
+scale = Vector2(0.1375, 0.12031251)
+texture = ExtResource("2_hg1j6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=247589718]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_opytq")

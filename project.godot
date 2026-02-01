@@ -40,7 +40,7 @@ layout/style_directory={
 "": "res://timelines/New_File.tres",
 "New_File": "res://timelines/New_File.tres"
 }
-layout/style_list=["", "res://timelines/New_File.tres"]
+layout/style_list=["res://timelines/New_File.tres"]
 layout/default_style="res://timelines/New_File.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
