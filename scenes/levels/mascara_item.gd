@@ -1,7 +1,6 @@
 extends Area2D
 
 func _on_body_entered(body):
-	if body.name == "Player":
-		Dialogic.start("res://timelines/ato2_con.dtl")
-		queue_free()
+	if body.name == "player":
+		get_tree().change_scene_to_file("res://scenes/levels/fase_boss.tscn")
 	

@@ -62,14 +62,18 @@ animations = [{
 radius = 4.0
 height = 13.345679
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
+size = Vector2(20, 36)
+
 [node name="player" type="CharacterBody2D" unique_id=1129646201]
 script = ExtResource("1_dovo2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1015152394]
 sprite_frames = SubResource("SpriteFrames_qek5x")
-animation = &"move_right"
+animation = &"move_left"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1989611000]
+position = Vector2(0, -43)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1804266291]
 position = Vector2(1, 13.000001)
@@ -80,3 +84,10 @@ shape = SubResource("CapsuleShape2D_8afob")
 position = Vector2(9, -5)
 
 [node name="ShotPosition" type="Marker2D" parent="flip" unique_id=902810867]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2033861063]
+
+[node name="collision" type="CollisionShape2D" parent="Area2D" unique_id=575093025]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_dovo2")
+debug_color = Color(0.8833807, 0.07826958, 0.7872609, 0.41960785)

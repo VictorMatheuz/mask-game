@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://gh2kqmwhk4ss"]
+
+[ext_resource type="Script" uid="uid://c788aasx4213a" path="res://scenes/inimigos.gd" id="1_hu6ol"]
+[ext_resource type="Texture2D" uid="uid://duhwsatrqy7s5" path="res://icon.svg" id="1_hy8de"]
+[ext_resource type="Texture2D" uid="uid://7x267n3dulv7" path="res://assets/Sprite MASK/mask maozinha.png" id="3_7sbcp"]
+[ext_resource type="PackedScene" uid="uid://cnj0pqhos3t8h" path="res://scenes/hitbox.tscn" id="3_xy0gv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hu6ol"]
+atlas = ExtResource("1_hy8de")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ottdd"]
+atlas = ExtResource("3_7sbcp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8xkr"]
+atlas = ExtResource("3_7sbcp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xy0gv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hu6ol")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ottdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8xkr")
+}],
+"loop": true,
+"name": &"maozinha",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sbcp"]
+size = Vector2(87.177246, 82.33374)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ottdd"]
+size = Vector2(92.02051, 96.86322)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1953736729]
+scale = Vector2(0.41295323, 0.41295323)
+collision_layer = 18
+collision_mask = 18
+script = ExtResource("1_hu6ol")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=470399226]
+sprite_frames = SubResource("SpriteFrames_xy0gv")
+animation = &"new_animation_1"
+autoplay = "maozinha"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=122028420]
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_7sbcp")
+
+[node name="hitbox" parent="." unique_id=1639725591 instance=ExtResource("3_xy0gv")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1484051826]
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_ottdd")

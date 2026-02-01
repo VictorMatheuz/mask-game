@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://cuad7hmhep7lv"]
+
+[ext_resource type="Script" uid="uid://c788aasx4213a" path="res://scenes/inimigos.gd" id="1_ptde3"]
+[ext_resource type="Texture2D" uid="uid://duhwsatrqy7s5" path="res://icon.svg" id="2_e5ye4"]
+[ext_resource type="Texture2D" uid="uid://ddsjdu5lqo157" path="res://assets/Sprite MASK/Sprite-0025ghost.png" id="3_ptde3"]
+[ext_resource type="PackedScene" uid="uid://cnj0pqhos3t8h" path="res://scenes/hitbox.tscn" id="4_cn670"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hu6ol"]
+atlas = ExtResource("2_e5ye4")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5ye4"]
+atlas = ExtResource("3_ptde3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_galht"]
+atlas = ExtResource("3_ptde3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cn670"]
+atlas = ExtResource("3_ptde3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r338s"]
+atlas = ExtResource("3_ptde3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xy0gv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hu6ol")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5ye4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_galht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cn670")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r338s")
+}],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sbcp"]
+size = Vector2(87.177246, 82.33374)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ottdd"]
+size = Vector2(92.02051, 96.86322)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1953736729]
+scale = Vector2(0.41295323, 0.41295323)
+collision_layer = 18
+collision_mask = 18
+script = ExtResource("1_ptde3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=470399226]
+scale = Vector2(3.125, 3.125)
+sprite_frames = SubResource("SpriteFrames_xy0gv")
+animation = &"new_animation_1"
+autoplay = "new_animation_1"
+frame_progress = 0.55579364
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=122028420]
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_7sbcp")
+
+[node name="hitbox" parent="." unique_id=1639725591 instance=ExtResource("4_cn670")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1484051826]
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_ottdd")
