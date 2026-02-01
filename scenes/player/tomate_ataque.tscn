@@ -43,7 +43,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_fj4bi"]
 radius = 6.699267
 
-[node name="tomate_ataque" type="CharacterBody2D" unique_id=551618634]
+[sub_resource type="CircleShape2D" id="CircleShape2D_463qx"]
+radius = 3.0
+
+[node name="tomate_ataque" type="CharacterBody2D" unique_id=551618634 groups=["projetil"]]
 script = ExtResource("1_463qx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1522583721]
@@ -55,3 +58,11 @@ frame_progress = 0.4468491
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1469028572]
 scale = Vector2(0.44781017, 0.44781017)
 shape = SubResource("CircleShape2D_fj4bi")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2022454017]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1442214356 groups=["projetil"]]
+shape = SubResource("CircleShape2D_463qx")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

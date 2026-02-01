@@ -11,8 +11,8 @@ func _on_body_entered(body):
 	if body.name == "Player":
 		return 
 	
-	if body.has_method("receber_ataque"):
-		body.receber_ataque(dano)
+	if body.has_method("receber_dano"):
+		body.receber_dano(1)
 		queue_free() 
 	else:
 		queue_free()
