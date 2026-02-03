@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://blh0new88gej5"]
+
+[ext_resource type="Texture2D" uid="uid://brltbuyf5q0gs" path="res://assets/O Adeus das Máscaras.png" id="1_h0aww"]
+[ext_resource type="Script" uid="uid://c5uqwd4qxlgv5" path="res://final.gd" id="1_tvybu"]
+
+[node name="Node2D" type="Node2D" unique_id=1570500973]
+script = ExtResource("1_tvybu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1075572255]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.2909656, 0.2909656, 0.29096556, 1)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1299515136]
+position = Vector2(164.99998, 89.99999)
+scale = Vector2(0.094766654, 0.087223046)
+texture = ExtResource("1_h0aww")
+
+[node name="Timer" type="Timer" parent="." unique_id=1341201105]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

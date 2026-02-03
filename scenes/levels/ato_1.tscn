@@ -1129,8 +1129,8 @@ position = Vector2(-18, 9)
 script = ExtResource("9_bnx8y")
 
 [node name="Sprite2D" type="Sprite2D" parent="MascaraItem" unique_id=234480175]
-position = Vector2(2063.6968, 45.696854)
-scale = Vector2(0.41855347, 0.41855347)
+position = Vector2(2058, 41)
+scale = Vector2(1.1977173, 1.1977173)
 texture = ExtResource("10_whjy5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MascaraItem" unique_id=1525218858]

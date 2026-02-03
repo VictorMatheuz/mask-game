@@ -1,49 +1,57 @@
 [gd_scene format=3 uid="uid://bvhcbuahaet43"]
 
-[ext_resource type="Texture2D" uid="uid://gcqvvfhudkox" path="res://assets/character/Hoi (1).png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://dpcy4vmorwhyj" path="res://scenes/player/player.gd" id="1_dovo2"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dovo2"]
-atlas = ExtResource("1_8afob")
-region = Rect2(0, 96, 24, 48)
+[ext_resource type="Texture2D" uid="uid://pxdm5s3wfodd" path="res://assets/Itens/Nova pasta/MASK 2026.png" id="2_dovo2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmlin"]
-atlas = ExtResource("1_8afob")
-region = Rect2(24, 96, 24, 48)
+atlas = ExtResource("2_dovo2")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lvxji"]
-atlas = ExtResource("1_8afob")
-region = Rect2(48, 96, 24, 48)
+atlas = ExtResource("2_dovo2")
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p47bc"]
-atlas = ExtResource("1_8afob")
-region = Rect2(0, 144, 24, 48)
+atlas = ExtResource("2_dovo2")
+region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75vfm"]
-atlas = ExtResource("1_8afob")
-region = Rect2(24, 144, 24, 48)
+atlas = ExtResource("2_dovo2")
+region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0owmy"]
-atlas = ExtResource("1_8afob")
-region = Rect2(48, 144, 24, 48)
+atlas = ExtResource("2_dovo2")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qek5x"]
+atlas = ExtResource("2_dovo2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gtgg"]
+atlas = ExtResource("2_dovo2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h17s1"]
+atlas = ExtResource("2_dovo2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je7p5"]
+atlas = ExtResource("2_dovo2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fm80t"]
+atlas = ExtResource("2_dovo2")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qek5x"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dovo2")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_gmlin")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lvxji")
-}],
-"loop": true,
-"name": &"move_left",
-"speed": 5.0
 }, {
-"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p47bc")
 }, {
@@ -54,13 +62,33 @@ animations = [{
 "texture": SubResource("AtlasTexture_0owmy")
 }],
 "loop": true,
+"name": &"move_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qek5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gtgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h17s1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je7p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fm80t")
+}],
+"loop": true,
 "name": &"move_right",
 "speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
-radius = 4.0
-height = 13.345679
+radius = 3.835416
+height = 7.670832
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
 size = Vector2(20, 36)
@@ -69,19 +97,20 @@ size = Vector2(20, 36)
 script = ExtResource("1_dovo2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1015152394]
+scale = Vector2(1.75, 1.75)
 sprite_frames = SubResource("SpriteFrames_qek5x")
-animation = &"move_left"
+animation = &"move_right"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1989611000]
 position = Vector2(0, -43)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1804266291]
-position = Vector2(1, 13.000001)
+position = Vector2(1, 19.000002)
 scale = Vector2(-1.8250953, 1.7983347)
 shape = SubResource("CapsuleShape2D_8afob")
 
 [node name="flip" type="Node2D" parent="." unique_id=1737802641]
-position = Vector2(9, -5)
+position = Vector2(2, 8)
 
 [node name="ShotPosition" type="Marker2D" parent="flip" unique_id=902810867]
 

@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://ctjo6rixgiie1" path="res://scenes/levels/boss.gd" id="3_meqg1"]
 [ext_resource type="Texture2D" uid="uid://bq6cw8llny3bj" path="res://assets/Sprite MASK/Sprite-0030.png" id="4_meqg1"]
 [ext_resource type="AudioStream" uid="uid://cphxchshoq8k5" path="res://RAIVA.mp3" id="7_sle2x"]
+[ext_resource type="PackedScene" uid="uid://cv1reiyut2t8x" path="res://mascara2.tscn" id="8_7df37"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_meqg1"]
 
@@ -149,7 +150,7 @@ scale = Vector2(1.206876, 1.206876)
 texture = ExtResource("1_4iehs")
 
 [node name="player" parent="." unique_id=1129646201 instance=ExtResource("1_ykunb")]
-position = Vector2(-119, 36)
+position = Vector2(-225, 36)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2063608370]
 position = Vector2(22, 129)
@@ -176,7 +177,7 @@ texture = ExtResource("2_sut2i")
 shape = SubResource("RectangleShape2D_u8gog")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=141702952]
-position = Vector2(416, 26.000002)
+position = Vector2(348.99997, 26)
 scale = Vector2(1.4708838, 2.5983996)
 physics_material_override = SubResource("PhysicsMaterial_meqg1")
 
@@ -188,7 +189,7 @@ texture = ExtResource("2_sut2i")
 shape = SubResource("RectangleShape2D_u8gog")
 
 [node name="Boss" type="CharacterBody2D" parent="." unique_id=25622659]
-position = Vector2(316, 11)
+position = Vector2(185, 11)
 collision_layer = 3
 script = ExtResource("3_meqg1")
 
@@ -231,4 +232,13 @@ stream = ExtResource("7_sle2x")
 volume_db = -15.0
 autoplay = true
 
+[node name="Mascara" parent="." unique_id=1416495997 instance=ExtResource("8_7df37")]
+position = Vector2(249, 50)
+scale = Vector2(1.8282523, 1.8282523)
+
+[node name="Sprite2D" parent="Mascara" index="0" unique_id=1429301144]
+scale = Vector2(0.6016235, 0.5264206)
+
 [connection signal="body_entered" from="Boss/ZonaMorte" to="Boss" method="_on_zona_morte_body_entered"]
+
+[editable path="Mascara"]

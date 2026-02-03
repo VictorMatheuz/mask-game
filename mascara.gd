@@ -3,10 +3,6 @@ extends Area2D
 var timeline_dialogo = "ato2_con"
 
 func _on_body_entered(body):
-	if body.name == "Player47":
-		ativar_dialogo()
+	if body.name == "player":
+		get_tree().change_scene_to_file("res://final.tscn")
 		
-func ativar_dialogo():
-		Dialogic.start(timeline_dialogo)
-
-		queue_free()
